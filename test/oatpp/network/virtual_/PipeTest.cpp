@@ -40,14 +40,14 @@ namespace {
   typedef oatpp::network::virtual_::Pipe Pipe;
   
   const char* DATA_CHUNK = "<0123456789/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ>";
-  const data::v_io_size CHUNK_SIZE = std::strlen(DATA_CHUNK);
+  const v_buff_size CHUNK_SIZE = std::strlen(DATA_CHUNK);
 
   class WriterTask : public oatpp::base::Countable {
   private:
     std::shared_ptr<Pipe> m_pipe;
     v_int64 m_chunksToTransfer;
-    data::v_io_size m_position = 0;
-    data::v_io_size m_transferedBytes = 0;
+    v_buff_size m_position = 0;
+    v_buff_size m_transferedBytes = 0;
   public:
     
     WriterTask(const std::shared_ptr<Pipe>& pipe, v_int64 chunksToTransfer)
